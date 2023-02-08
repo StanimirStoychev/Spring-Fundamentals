@@ -63,7 +63,7 @@ public class UserRoleServiceImpl implements UserRoleService, DataBaseInitService
 
     @Override
     public UserRoleModel findRoleByName(String name) {
-        return this.modelMapper.map(this.roleRepository.findByRole(name)
+        return this.modelMapper.map(this.roleRepository.findByRole(Role.valueOf(name))
                 .orElseThrow(NoSuchElementException::new),
                 UserRoleModel.class);
     }
