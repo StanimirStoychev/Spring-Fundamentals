@@ -6,7 +6,7 @@ import com.example.mobilelele.services.init.DataBaseInitService;
 
 import java.util.List;
 
-public interface UserRoleService extends DataBaseInitService {
+public interface UserRoleService {
     List<UserRoleViewDto> getAll();
 
     List<UserRoleModel> findAllRoles();

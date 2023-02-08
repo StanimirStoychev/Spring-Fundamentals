@@ -5,6 +5,7 @@ import com.example.mobilelele.domain.dtos.view.UserRoleViewDto;
 import com.example.mobilelele.domain.entities.UserRole;
 import com.example.mobilelele.domain.enums.Role;
 import com.example.mobilelele.repositories.RoleRepository;
+import com.example.mobilelele.services.init.DataBaseInitService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
-public class UserRoleServiceImpl implements UserRoleService {
+public class UserRoleServiceImpl implements UserRoleService, DataBaseInitService {
 
     private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;

@@ -2,11 +2,12 @@ package com.example.mobilelele.services.brand;
 
 
 import com.example.mobilelele.repositories.BrandRepository;
+import com.example.mobilelele.services.init.DataBaseInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BrandServiceImpl implements BrandService {
+public class BrandServiceImpl implements BrandService, DataBaseInitService {
 
     private final BrandRepository brandRepository;
 

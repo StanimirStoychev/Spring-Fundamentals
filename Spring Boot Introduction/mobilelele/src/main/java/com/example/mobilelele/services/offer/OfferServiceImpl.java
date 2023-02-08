@@ -1,10 +1,11 @@
 package com.example.mobilelele.services.offer;
 
 import com.example.mobilelele.repositories.OfferRepository;
+import com.example.mobilelele.services.init.DataBaseInitService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OfferServiceImpl implements OfferService {
+public class OfferServiceImpl implements OfferService, DataBaseInitService {
 
     private final OfferRepository offerRepository;
 
