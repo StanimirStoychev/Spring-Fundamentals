@@ -1,12 +1,11 @@
 package org.softuni.mobilele.web;
 
 import org.softuni.mobilele.model.dto.offer.CreateOfferDTO;
-import org.softuni.mobilele.service.OfferService;
+import org.softuni.mobilele.model.entity.enums.Engine;
+import org.softuni.mobilele.model.entity.enums.Transmission;
+import org.softuni.mobilele.service.offer.OfferService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -18,6 +17,16 @@ public class OfferController {
 
     public OfferController(OfferService offerService) {
         this.offerService = offerService;
+    }
+
+    @ModelAttribute("engines")
+    public Engine[] engines() {
+        return Engine.values();
+    }
+
+    @ModelAttribute("transmissions")
+    public Transmission[] transmissions() {
+        return Transmission.values();
     }
 
     @GetMapping("/all")
