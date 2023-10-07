@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class User extends BaseEntity {
 
+    @Column
+    private int age;
+
     @Column(nullable = false, unique = true)
     private String username;
 
@@ -19,13 +22,22 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String email;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Role role;
 
     @Enumerated(EnumType.STRING)
     private Level level;
 
     public User() {}
+
+    public int getAge() {
+        return age;
+    }
+
+    public User setAge(int age) {
+        this.age = age;
+        return this;
+    }
 
     public String getUsername() {
         return username;

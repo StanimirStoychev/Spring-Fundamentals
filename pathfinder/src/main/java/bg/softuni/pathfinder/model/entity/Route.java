@@ -3,9 +3,15 @@ package bg.softuni.pathfinder.model.entity;
 import bg.softuni.pathfinder.model.entity.enums.Level;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "routes")
 public class Route extends BaseEntity {
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @Column(name = "gpx_coordinates", nullable = false, columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
@@ -22,7 +28,30 @@ public class Route extends BaseEntity {
     @Column(name = "video_url")
     private String videoUrl;
 
-    public Route() {}
+    @ManyToMany
+    private Set<Category> categories;
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Route setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public Route setCategories(Set<Category> categories) {
+        this.categories = categories;
+        return this;
+    }
+
+    public Route() {
+        this.categories = new HashSet<>();
+    }
 
     public String getGpxCoordinates() {
         return gpxCoordinates;
