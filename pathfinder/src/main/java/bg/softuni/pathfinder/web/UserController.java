@@ -1,8 +1,10 @@
 package bg.softuni.pathfinder.web;
 
+import bg.softuni.pathfinder.model.dto.user.UserLoginDTO;
 import bg.softuni.pathfinder.model.dto.user.UserRegisterDTO;
 import bg.softuni.pathfinder.service.user.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,16 @@ public class UserController {
     @GetMapping("/login")
     public ModelAndView login() {
         return new ModelAndView("login");
+    }
+
+    @PostMapping("/login")
+    public ModelAndView login(UserLoginDTO userLoginDTO) {
+        boolean isLogged = userService.login(userLoginDTO);
+
+        if (!isLogged) {
+            return new ModelAndView("login");
+        }
+        return new ModelAndView("redirect:/");
     }
 
     @GetMapping("/register")

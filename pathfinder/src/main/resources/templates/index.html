@@ -47,6 +47,9 @@
                 <li>
                     <a href="/">Logout</a>
                 </li>
+            <li>
+                <th:block th:text="${@loggedUser.username} == null ? 'no user' : ${@loggedUser.username}"></th:block>
+            </li>
         </ul>
     </nav>
 </header>
